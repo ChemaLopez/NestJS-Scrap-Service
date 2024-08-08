@@ -1,4 +1,4 @@
-import { ScrapResultDTO } from "./model/scrapResult.DTO";
+import { ScrapResultDTO } from "./scrapResult.DTO";
 
 export interface ScraperInterface {
     scrapUrl(url:URL): Promise<ScrapResultDTO>

@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ScrapModule } from './scrapping/scrap.module';
+import { ScrapModule } from './infraestructure/scrap.module';
+import { AnalizeModule } from './infraestructure/analize.module';
 
 @Module({
-  imports: [ScrapModule],
+  imports: [ScrapModule,AnalizeModule],
   
 })
 export class AppModule {}

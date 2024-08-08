@@ -8,6 +8,7 @@ export class ScrapRequestDTO{
     url:string
 }
 
+
 export class ScrapResponseDTO{
     
 }

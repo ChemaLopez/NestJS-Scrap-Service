@@ -1,11 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import { ScrapRequestDTO } from "./model/scrap.model";
-import { chromium } from "playwright";
-import { ScrapOrchestrator } from "src/scrapping/domain/scrap.orchestrator";
-import { ScrapPortInterface } from "src/scrapping/domain/port/scrap.port";
+import { ScrapOrchestrator } from "src/domain/scrap/scrap.orchestrator";
+import { ScrapPagePortInterface } from "src/domain/scrap/port/scrap.port";
 
 @Injectable()
-export class ScrapAdapter implements ScrapPortInterface{
+export class ScrapPage implements ScrapPagePortInterface{
 
     
     constructor(private scrapOrchestrator :ScrapOrchestrator){}
