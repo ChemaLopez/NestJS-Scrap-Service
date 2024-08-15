@@ -1,14 +1,12 @@
 import { ScrapRequestDTO } from "src/aplication/scrap/model/scrap.model";
 import { ScrapProvider } from "./providers/srap.providers";
 import { URL } from "url";
-import { Injectable } from "@nestjs/common";
 
-
-@Injectable()
 export class ScrapOrchestrator {
+    private scrapProvider:ScrapProvider
 
-
-    constructor(private scrapProvider:ScrapProvider){
+    constructor(){
+        this.scrapProvider = new ScrapProvider()
     }
 
 

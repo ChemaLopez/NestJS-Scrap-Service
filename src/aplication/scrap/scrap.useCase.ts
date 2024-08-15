@@ -6,8 +6,10 @@ import { ScrapPagePortInterface } from "src/domain/scrap/port/scrap.port";
 @Injectable()
 export class ScrapPage implements ScrapPagePortInterface{
 
-    
-    constructor(private scrapOrchestrator :ScrapOrchestrator){}
+    private scrapOrchestrator :ScrapOrchestrator
+    constructor(){
+        this.scrapOrchestrator = new ScrapOrchestrator();
+    }
    
 
 

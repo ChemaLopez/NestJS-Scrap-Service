@@ -5,12 +5,15 @@ import { SiteMapReaderInterface } from "../model/siteMapReader";
 import { FetchSiteMapReader } from "../../../infraestructure/site-map-reader/fetchSiteMapReader";
 
 
-@Injectable()
 export class ScrapProvider {
 
-    constructor(private playWrightScrapperService : PlayWrightScrapperService,
-        private siteMapReader:FetchSiteMapReader
-    ){}
+    private playWrightScrapperService : PlayWrightScrapperService;
+    private siteMapReader:FetchSiteMapReader;
+
+    constructor(){
+        this.playWrightScrapperService = new PlayWrightScrapperService();
+        this.siteMapReader= new FetchSiteMapReader()
+    }
 
     getScrappService():ScraperInterface{
         return this.playWrightScrapperService;

@@ -1,15 +1,14 @@
-import { Injectable } from "@nestjs/common";
+import AxeBuilder from "@axe-core/playwright";
+import axe from "axe-core";
 import { chromium } from "playwright";
 import { ScrapResultDTO } from "src/domain/scrap/model/scrapResult.DTO";
 import { ScraperInterface } from "src/domain/scrap/model/scraper";
 import { v4 as uuidv4 } from 'uuid';
 
-@Injectable()
 export class PlayWrightScrapperService  implements ScraperInterface{
     
 
     async scrapUrl(url:URL): Promise<ScrapResultDTO> {
-
 
         const browser = await chromium.launch();
         const context = await browser.newContext();
@@ -34,5 +33,15 @@ export class PlayWrightScrapperService  implements ScraperInterface{
        
     }
 
+    async resolveAnalize (url:URL):Promise<axe.AxeResults>{
+        const browser = await chromium.launch();
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        await page.goto(url.toString());
 
+        const axe = new AxeBuilder({page});
+        const results = await axe.analyze();
+        await browser.close()
+        return results
+    }
 }
