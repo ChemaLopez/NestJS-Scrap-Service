@@ -1,4 +1,9 @@
 
 export type ScrapResultDTO={
-    scrapResult:{url:string, id:string}[];
+    scrapResult:ScrapElement[];
+}
+
+export type ScrapElement={
+    url:string,
+     id:string
 }
