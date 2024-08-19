@@ -15,11 +15,9 @@ export class ScrapOrchestrator {
         const siteMapReader= this.scrapProvider.getSiteMapReader();
 
         const urlToScrap = new URL('https://'+url.url);
+        if(url.complexScrap===false)
+          return  await siteMapReader.readRobotsTxt(urlToScrap);
 
-        const siteMap = await siteMapReader.readRobotsTxt(urlToScrap);
-        if(siteMap.scrapResult.length>0){
-            return siteMap}
-
-       return scrapService.scrapUrl(urlToScrap)
+       return await scrapService.scrapUrl(urlToScrap)
     }
 }

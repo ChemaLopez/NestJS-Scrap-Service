@@ -44,7 +44,7 @@ export class FetchSiteMapReader implements SiteMapReaderInterface{
         if(siteMap.sitemapindex?.sitemap){
             for (const elem of siteMap.sitemapindex?.sitemap){
                 const result = await this.getSiteMapLocations(new URL(elem.loc),urls)
-                if(urls.length<5000000)
+                if(urls.length<3000000)
                     urls=urls.concat(result)
                 else
                     return urls

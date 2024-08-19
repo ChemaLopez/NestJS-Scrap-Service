@@ -18,12 +18,11 @@ export class PlayWrightScrapperService  implements ScraperInterface{
         let result =await page.$$eval('a', (links)=>
             links.map((element)=>element.getAttribute('href'))
         ) 
-        
         result = result.filter((elem, index, self) =>{
+            if(elem=== null )return false;
             let toDelete= index === self.indexOf(elem)
-             toDelete =toDelete&& elem.includes('/') 
-             && !elem.includes(' ');
-            if(elem.includes('https://') || elem.includes('https://'))
+             toDelete =toDelete && ( elem.includes('/') && !elem.includes(' '));
+            if(elem?.includes('https://') || elem?.includes('https://'))
                toDelete= toDelete && elem.includes(url.toString())
              return toDelete;
         })
