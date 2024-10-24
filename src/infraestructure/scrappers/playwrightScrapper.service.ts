@@ -22,7 +22,7 @@ export class PlayWrightScrapperService  implements ScraperInterface{
             if(elem=== null )return false;
             let toDelete= index === self.indexOf(elem)
              toDelete =toDelete && ( elem.includes('/') && !elem.includes(' '));
-            if(elem?.includes('https://') || elem?.includes('https://'))
+            if(elem?.includes('https://') || elem?.includes('http://'))
                toDelete= toDelete && elem.includes(url.toString())
              return toDelete;
         })

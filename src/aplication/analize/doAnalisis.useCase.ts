@@ -12,7 +12,7 @@ export class DoAnalizeRequestPort implements AnalizePortInterface{
 
     async execute(doAnalisis:DoAnalizeRequestDTO){
 
-        //VALIDATE MODEL BEFORE CALL ORCHESTRATOR
+     
         const playwright = new PlayWrightScrapperService()
       const result = playwright.resolveAnalize(new URL(doAnalisis.url))
 
