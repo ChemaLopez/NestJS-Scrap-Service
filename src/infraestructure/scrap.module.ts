@@ -1,6 +1,5 @@
 import { Module } from "@nestjs/common";
 import { ScrapPage } from "../aplication/scrap/scrap.useCase";
-import { ScrapProvider } from "../domain/scrap/providers/srap.providers";
 import { ScrapController } from "./http-endpoints/scrap/scrap.controller";
 import { ScrapPagePortInterface } from "../domain/scrap/port/scrap.port";
 import { FetchSiteMapReader } from "./site-map-reader/fetchSiteMapReader";
@@ -8,11 +7,10 @@ import { FetchSiteMapReader } from "./site-map-reader/fetchSiteMapReader";
 @Module({
     imports: [],
     controllers: [ScrapController],
-    providers: [ScrapPage,
-      ScrapProvider,
+    providers: [
       {
         provide:ScrapPagePortInterface,
-        useExisting:ScrapPage
+        useClass: ScrapPage
       },
       FetchSiteMapReader
     ],

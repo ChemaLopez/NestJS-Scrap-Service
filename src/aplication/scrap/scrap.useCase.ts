@@ -15,10 +15,6 @@ export class ScrapPage implements ScrapPagePortInterface{
 
 
     async execute(url:ScrapRequestDTO){
-
-        //VALIDATE MODEL BEFORE CALL ORCHESTRATOR
        return  this.scrapOrchestrator.execute(url)
-
-       
     }
 }

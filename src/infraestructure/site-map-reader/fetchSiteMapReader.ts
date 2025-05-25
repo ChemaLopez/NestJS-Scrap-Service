@@ -8,7 +8,6 @@ import { setTimeout } from "timers/promises";
 
 
 @Injectable()
-
 export class FetchSiteMapReader implements SiteMapReaderInterface{
 
     async readRobotsTxt(url:URL):Promise<ScrapResultDTO>{

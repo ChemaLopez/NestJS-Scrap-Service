@@ -7,10 +7,10 @@ import { PlayWrightScrapperService } from "./scrappers/playwrightScrapper.servic
 @Module({
     imports: [],
     controllers: [AnalizeController],
-    providers: [DoAnalizeRequestPort,
+    providers: [
       {
         provide:AnalizePortInterface,
-        useExisting:DoAnalizeRequestPort
+        useClass:DoAnalizeRequestPort
       },
       PlayWrightScrapperService,
     ],

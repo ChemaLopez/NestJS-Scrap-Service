@@ -1,6 +1,5 @@
-import { Body, Controller, Get, HttpStatus, Post, Query } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { ScrapRequestDTO } from '../../../aplication/scrap/model/scrap.model';
-import { ScrapPage } from '../../../aplication/scrap/scrap.useCase';
 import { ScrapPagePortInterface } from 'src/domain/scrap/port/scrap.port';
 
 @Controller()
